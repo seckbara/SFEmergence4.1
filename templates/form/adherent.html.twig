@@ -1,0 +1,76 @@
+{% block form %}
+    <div class="row">
+        <div class="col-xs-6">
+            {{ form_row(form.nom) }}
+        </div>
+        <div class="col-xs-6">
+            {{ form_row(form.prenom) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6">
+            {{ form_row(form.date_naissance) }}
+        </div>
+        <div class="col-xs-6">
+            {{ form_row(form.adresse) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6">
+            {{ form_start(form) }}
+        </div>
+        <div class="col-xs-6">
+            {{ form_row(form.telephone) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6">
+        </div>
+        <div class="col-xs-6">
+            {{ form_row(form.email) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6">
+
+        </div>
+        <div class="col-xs-6">
+            {{ form_row(form.adresse) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6">
+            {{ form_row(form.document) }}
+        </div>
+        <div class="col-xs-6">
+            {{ form_row(form.photo) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6">
+            {{ form_row(form.sexe) }}
+        </div>
+        <div class="col-xs-6">
+            {{ form_row(form.certificat) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6">
+            {{ form_row(form.commentaire) }}
+        </div>
+        <div class="col-xs-6">
+            {{ form_row(form.nume_secu) }}
+        </div>
+    </div><br>
+
+    {{ form_row(form.submit) }}
+    {{ form_end(form) }}
+
+{% endblock %}
