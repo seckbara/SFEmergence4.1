@@ -12,6 +12,7 @@
  {% block title_page_block %}Ajouter un adherent{% endblock %}
 
 {% block content %}
+    {{ dump(adherent) }}
     {% form_theme form 'form/adherent.html.twig' %}
     {{ form(form, {attr: {novalidate: 'novalidate'}}) }}
 {% endblock %}

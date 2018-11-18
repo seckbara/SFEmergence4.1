@@ -4,6 +4,11 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    adherent_dir_picture: 'photos'
+    adherent_dir_documents: 'documents'
+    adherent_assets_dir: '%kernel.project_dir%/public/%adherent_dir_picture%'
+    adherent_assets_dir_documents: '%kernel.project_dir%/public/%adherent_dir_documents%'
+    local: 'en'
 
 services:
     # default configuration for services in *this* file
@@ -28,3 +33,8 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Adherent\AdherentRequestHandler:
+        arguments:
+            $photoDirectory: '%adherent_assets_dir%'
+            $documentDirectory: '%adherent_assets_dir_documents%'
+
