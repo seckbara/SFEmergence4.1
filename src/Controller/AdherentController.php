@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: seck
- * Date: 17/11/2018
- * Time: 15:52
- */
 
 namespace App\Controller;
 
@@ -29,13 +23,17 @@ class AdherentController extends  Controller
         $adherent = new AdherentRequest();
         $form = $this->createForm(AdherentType::class, $adherent)->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
-            $photo = $adherent->getNom();
-//            $photo->move()
-            //$adherent = $adherentRequestHandler->handle($adherent);
+            $adherent = $adherentRequestHandler->handle($adherent);
+            if(null != $adherent){
+                $this->addFlash('notice', "L'adherent a bien été ajouté");
+            }
+            else{
+                $this->addFlash('error', "Une erreur est survénu");
+                $this->redirectToRoute('adherent_add');
+            }
         }
         return $this->render("Adherent/adherent.html.twig", [
             'form' => $form->createView(),
-            'adherent' => $adherent
         ]);
     }
 }

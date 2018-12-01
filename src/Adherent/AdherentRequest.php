@@ -4,22 +4,67 @@ namespace App\Adherent;
 
 class AdherentRequest
 {
+    /**
+     * @var
+     */
     private $id;
+    /**
+     * @var
+     */
     private $nom;
+    /**
+     * @var
+     */
     private $prenom;
+    /**
+     * @var
+     */
     private $date_naissance;
+    /**
+     * @var
+     */
     private $sexe;
+    /**
+     * @var
+     */
     private $telephone;
+    /**
+     * @var
+     */
     private $adresse;
+    /**
+     * @var
+     */
     private $email;
+    /**
+     * @var
+     */
     private $certificat;
+    /**
+     * @var
+     */
     private $nume_secu;
     private $document;
+    /**
+     * @var
+     */
     private $commentaire;
     private $photo;
+    /**
+     * @var \DateTime
+     */
     private $date_creation;
+    /**
+     * @var
+     */
     private $user;
+    /**
+     * @var
+     */
     private $situation;
+    /**
+     * @var
+     */
     private $abonnements;
 
     /**
@@ -273,7 +318,7 @@ class AdherentRequest
     /**
      * @return mixed
      */
-    public function getSituation()
+    public function getSituation(): ?string
     {
         return $this->situation;
     }
@@ -281,7 +326,7 @@ class AdherentRequest
     /**
      * @param mixed $situation
      */
-    public function setSituation($situation): void
+    public function setSituation(string $situation): void
     {
         $this->situation = $situation;
     }

@@ -22,23 +22,26 @@ class AdherentType extends AbstractType
         $builder
             ->add('nom', TextType::class ,
                 [
-                    'label' => 'Nom',
+                    'required' => true,
+                    'label' => 'Nom... ',
                     'attr' => [
                         'placeholder' => 'Veuillez saisir votre nom'
                     ]
                 ])
             ->add('prenom', TextType::class ,
                 [
-                    'label' => 'Prenom',
+                    'required' => true,
+                    'label' => 'Prenom... ',
                     'attr' => [
                         'placeholder' => 'Veuillez saisir votre prenom'
                     ]
                 ])
-            ->add('date_naissance', DateTimeType::class ,
+            ->add('date_naissance', TextType::class ,
                 [
+                    'required' => true,
                     'label' => 'date de naissance',
                     'attr' => [
-                        'class' => 'datetimepicker'
+                        'class' => 'datepicker'
                     ]
                 ])
             ->add('sexe', CheckboxType::class, [
@@ -81,7 +84,7 @@ class AdherentType extends AbstractType
                     'required' => true,
                     'label' => 'Charger le certificat',
                     'attr' => [
-                        'class' => 'filedropy'
+                        'class' => 'dropify'
                     ]
                 ])
             ->add('commentaire', CKEditorType::class, [
@@ -95,7 +98,7 @@ class AdherentType extends AbstractType
                     'required' => true,
                     'label' => 'Charger la photo',
                     'attr' => [
-                        'class' => 'filedropy'
+                        'class' => 'dropify'
                     ]
                 ])
             ->add('certificat', CheckboxType::class, [
@@ -111,6 +114,9 @@ class AdherentType extends AbstractType
                     'Etudiant' => "Etudiant",
                     'Salarié' => "Salarié",
                     'Retraité' => "Retraité",
+                ],
+                'attr' => [
+                    'class' => 'select2'
                 ]
             ])
             ->add('submit', SubmitType::class, [

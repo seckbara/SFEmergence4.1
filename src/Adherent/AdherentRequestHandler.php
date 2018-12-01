@@ -4,8 +4,6 @@ namespace App\Adherent;
 
 use App\Entity\Adherent;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class AdherentRequestHandler
 {
@@ -36,11 +34,12 @@ class AdherentRequestHandler
     public function handle(AdherentRequest $request): ?Adherent
     {
         $photo = $request->getPhoto();
-        $photo->move($this->photoDirectory, $photo->guessExtension());
+        $filePhoto = $request->getNom() . '_' . $request->getPrenom();
+        $photo->move($this->photoDirectory, $filePhoto .'.'.$photo->guessExtension());
 
         $document = $request->getDocument();
-        $document->move($this->photoDirectory, $photo->guessExtension());
-
+        $fileDocument = $request->getNom() . '_' . $request->getPrenom();
+        $document->move($this->documentDirectory, $fileDocument . '.' .$document->guessExtension());
         $adherent = $this->adhrentFactory->createFromAdherent($request);
         $this->em->persist($adherent);
         $this->em->flush();

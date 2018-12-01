@@ -28,7 +28,7 @@ class Adherent
     private $prenom;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="string", length=50)
      */
     private $date_naissance;
 
@@ -108,10 +108,10 @@ class Adherent
     }
 
     public static function create(
-        ?int $id,
+        ?int $id = null,
         string $nom,
         string $prenom,
-        \DateTime $date_naissance,
+        string $date_naissance,
         string $sexe,
         string $tel,
         string $adresse,
@@ -142,153 +142,212 @@ class Adherent
         return $adherent;
     }
 
-    public function getId(): ?int
+    /**
+     * @return mixed
+     */
+    public function getId()
     {
         return $this->id;
     }
 
-    public function getNom(): ?string
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNom()
     {
         return $this->nom;
     }
 
-    public function setNom(string $nom): self
+    /**
+     * @param mixed $nom
+     */
+    public function setNom($nom): void
     {
         $this->nom = $nom;
-
-        return $this;
     }
 
-    public function getPrenom(): ?string
+    /**
+     * @return mixed
+     */
+    public function getPrenom()
     {
         return $this->prenom;
     }
 
-    public function setPrenom(string $prenom): self
+    /**
+     * @param mixed $prenom
+     */
+    public function setPrenom($prenom): void
     {
         $this->prenom = $prenom;
-
-        return $this;
     }
 
-    public function getDateNaissance(): ?\DateTimeInterface
+    /**
+     * @return mixed
+     */
+    public function getDateNaissance()
     {
         return $this->date_naissance;
     }
 
-    public function setDateNaissance(\DateTimeInterface $date_naissance): self
+    /**
+     * @param mixed $date_naissance
+     */
+    public function setDateNaissance($date_naissance): void
     {
         $this->date_naissance = $date_naissance;
-
-        return $this;
     }
 
-    public function getSexe(): ?string
+    /**
+     * @return mixed
+     */
+    public function getSexe()
     {
         return $this->sexe;
     }
 
-    public function setSexe(string $sexe): self
+    /**
+     * @param mixed $sexe
+     */
+    public function setSexe($sexe): void
     {
         $this->sexe = $sexe;
-
-        return $this;
     }
 
-    public function getTelephone(): ?string
+    /**
+     * @return mixed
+     */
+    public function getTelephone()
     {
         return $this->telephone;
     }
 
-    public function setTelephone(string $telephone): self
+    /**
+     * @param mixed $telephone
+     */
+    public function setTelephone($telephone): void
     {
         $this->telephone = $telephone;
-
-        return $this;
     }
 
-    public function getAdresse(): ?string
+    /**
+     * @return mixed
+     */
+    public function getAdresse()
     {
         return $this->adresse;
     }
 
-    public function setAdresse(string $adresse): self
+    /**
+     * @param mixed $adresse
+     */
+    public function setAdresse($adresse): void
     {
         $this->adresse = $adresse;
-
-        return $this;
     }
 
-    public function getEmail(): ?string
+    /**
+     * @return mixed
+     */
+    public function getEmail()
     {
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email): void
     {
         $this->email = $email;
-
-        return $this;
     }
 
-    public function getCertificat(): ?string
+    /**
+     * @return mixed
+     */
+    public function getCertificat()
     {
         return $this->certificat;
     }
 
-    public function setCertificat(string $certificat): self
+    /**
+     * @param mixed $certificat
+     */
+    public function setCertificat($certificat): void
     {
         $this->certificat = $certificat;
-
-        return $this;
     }
 
-    public function getNumeSecu(): ?string
+    /**
+     * @return mixed
+     */
+    public function getNumeSecu()
     {
         return $this->nume_secu;
     }
 
-    public function setNumeSecu(string $nume_secu): self
+    /**
+     * @param mixed $nume_secu
+     */
+    public function setNumeSecu($nume_secu): void
     {
         $this->nume_secu = $nume_secu;
-
-        return $this;
     }
 
-    public function getDocument(): ?string
+    /**
+     * @return mixed
+     */
+    public function getDocument()
     {
         return $this->document;
     }
 
-    public function setDocument(string $document): self
+    /**
+     * @param mixed $document
+     */
+    public function setDocument($document): void
     {
         $this->document = $document;
-
-        return $this;
     }
 
-    public function getCommentaire(): ?string
+    /**
+     * @return mixed
+     */
+    public function getCommentaire()
     {
         return $this->commentaire;
     }
 
-    public function setCommentaire(string $commentaire): self
+    /**
+     * @param mixed $commentaire
+     */
+    public function setCommentaire($commentaire): void
     {
         $this->commentaire = $commentaire;
-
-        return $this;
     }
 
-    public function getPhoto(): ?string
+    /**
+     * @return mixed
+     */
+    public function getPhoto()
     {
         return $this->photo;
     }
 
-    public function setPhoto(string $photo): self
+    /**
+     * @param mixed $photo
+     */
+    public function setPhoto($photo): void
     {
         $this->photo = $photo;
-
-        return $this;
     }
 
     /**
@@ -316,42 +375,12 @@ class Adherent
     }
 
     /**
-     * @param mixed $users
+     * @param mixed $user
      */
     public function setUser($user): void
     {
         $this->user = $user;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getAbonnements()
-    {
-        return $this->abonnements;
-    }
 
-    /**
-     * @param mixed $abonnements
-     */
-    public function setAbonnements($abonnements): void
-    {
-        $this->abonnements = $abonnements;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSituation()
-    {
-        return $this->situation;
-    }
-
-    /**
-     * @param mixed $situation
-     */
-    public function setSituation($situation): void
-    {
-        $this->situation = $situation;
-    }
 }

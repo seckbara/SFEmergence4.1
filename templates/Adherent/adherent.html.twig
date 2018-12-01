@@ -4,7 +4,7 @@
     {{ parent() }}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" integrity="sha256-AWdeVMUYtwLH09F6ZHxNgvJI37p+te8hJuSMo44NVm0=" crossorigin="anonymous" />
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" integrity="sha256-yMjaV542P+q1RnH6XByCPDfUFhmOafWbeLPmqKh11zo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/multiple-select/1.2.0/multiple-select.min.css" integrity="sha256-SOf2PkUgyKvfCs+PJ/5yZzfP5rWVG33Cj5VUGmB9mxA=" crossorigin="anonymous" />
 {% endblock %}
 
  {% block page_title %} Ajouter {% endblock %}
@@ -12,27 +12,29 @@
  {% block title_page_block %}Ajouter un adherent{% endblock %}
 
 {% block content %}
-    {{ dump(adherent) }}
     {% form_theme form 'form/adherent.html.twig' %}
     {{ form(form, {attr: {novalidate: 'novalidate'}}) }}
 {% endblock %}
 
-{% block javascripts %}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.0/js/dropify.min.js" integrity="sha256-IqD9f/TIL2etPsNobICyFE1my5UEnyuw4K2gX4T9+wA=" crossorigin="anonymous"></script>
+
+{% block javascripts_final %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" integrity="sha256-SUaao5Q7ifr2twwET0iyXVy0OVnuFJhGVi5E/dqEiLU=" crossorigin="anonymous"></script>
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js" integrity="sha256-5YmaxAwMjIpMrVlK84Y/+NjCpKnFYa8bWWBbUHSBGfU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/multiple-select/1.2.0/multiple-select.min.js" integrity="sha256-oVeQhPrFl361T5b6IE9xznCL4L3pkUw+lDhyyi26/Vg=" crossorigin="anonymous"></script>
     <script>
-            $('.filedropy').dropify({
-                messages: {
-                    default: 'Glissez-d&eacute;posez un fichier ici ou cliquez',
-                    replace: 'Glissez-d&eacute;posez un fichier ou cliquez pour remplacer',
-                    remove:  'Supprimer',
-                    error:   'D&eacute;sol&eacute;, le fichier est trop volumineux'
-                }
-            });
-            $('.datetimepicker').datetimepicker({
-                locale: 'fr'
-            });
+        $('.dropify').dropify({
+            messages: {
+                default: 'Glissez-d&eacute;posez un fichier ici ou cliquez',
+                replace: 'Glissez-d&eacute;posez un fichier ou cliquez pour remplacer',
+                remove:  'Supprimer',
+                error:   'D&eacute;sol&eacute;, le fichier est trop volumineux'
+            }
+        });
+
+        $('.datepicker').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+
+        $(".select2").select2();
     </script>
 {% endblock %}
