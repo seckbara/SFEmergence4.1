@@ -7,7 +7,6 @@ use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -23,7 +22,7 @@ class AdherentType extends AbstractType
             ->add('nom', TextType::class ,
                 [
                     'required' => true,
-                    'label' => 'Nom... ',
+                    'label' => 'Nom',
                     'attr' => [
                         'placeholder' => 'Veuillez saisir votre nom'
                     ]
@@ -31,7 +30,7 @@ class AdherentType extends AbstractType
             ->add('prenom', TextType::class ,
                 [
                     'required' => true,
-                    'label' => 'Prenom... ',
+                    'label' => 'Prenom',
                     'attr' => [
                         'placeholder' => 'Veuillez saisir votre prenom'
                     ]

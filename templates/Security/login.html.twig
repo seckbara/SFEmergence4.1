@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+ {% block page_title %} Connexion {% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bower_components/Ionicons/css/ionicons.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css') }}" />
+
+{% endblock %}
+
+
+{% block body %}
+    <div class="login-box ">
+        <div class="login-logo">
+            <a href=""></a>
+        </div>
+
+        <div class="login-box-body">
+            <p class="login-box-msg">Veuillez vous connecter</p>
+
+            {% if error %}
+                <div class="alert alert-danger">
+                    {{ error.messageKey|trans(error.messageData, 'security') }}
+                </div>
+            {% endif %}
+
+            {% for message in app.flashes('notice') %}
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{ message }}
+                </div>
+            {% endfor %}
+
+            {{ dump(error) }}
+
+            {{ form(form) }}
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('plugins/iCheck/icheck.min.js') }}"></script>
+{% endblock %}
